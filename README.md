@@ -1,89 +1,97 @@
-# 🚀 React Native Starter - A Free Mobile App Template!
+This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-[View Docs](https://flatlogic.com/templates/react-native-starter/demo) | [Download](https://github.com/flatlogic/react-native-starter/archive/refs/heads/master.zip) | [More Templates](https://flatlogic.com/templates) | [Discord Community](https://discord.gg/flatlogic-community) | [Support Forum](https://flatlogic.com/forum)
+# Getting Started
 
-**Originally a premium product priced at $69+, now available for free!** 🎉
+> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
 
-Looking for a perfect codebase generator for your Startup? Try [Flatlogic AI Web App Generator](https://flatlogic.com/generator) - our new tool, sort of a template++.
+## Step 1: Start Metro
 
----
-![React Native Starter](https://i.imgur.com/vcz4bU6.png)
+First, you will need to run **Metro**, the JavaScript build tool for React Native.
 
-## 🎯 Why React Native Starter?
-- **Ex-Premium**: This template was previously paid. Enjoy it for free now. 😉
-- **Tons of components**: Packed with ready-to-use elements for rapid development.
-- **Join the Community**: [Flatlogic Discord](https://discord.gg/flatlogic-community) is where the action happens.
-- **Free Node.js Backend**: Pair it up with [this backend](https://github.com/flatlogic/nodejs-backend) to go full-stack.
+To start the Metro dev server, run the following command from the root of your React Native project:
 
----
+```sh
+# Using npm
+npm start
 
-## 🚀 Quick Start
+# OR using Yarn
+yarn start
+```
 
-1. **Clone the repo**
-   ```bash
-   git clone https://github.com/flatlogic/react-native-starter.git
-   cd react-native-starter
-   ```
-2. **Install dependencies**
-   ```bash
-   yarn install
-   ```
-3. **Run the app**
-   ```bash
-   yarn run:ios  # for iOS
-   yarn run:android  # for Android
-   ```
+## Step 2: Build and run your app
 
----
+With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
 
-## 🧩 Features
+### Android
 
-- Fully Responsive
-- Built with React Native
-- Ready-to-use Components
-- 6 Color Themes
-- Modular Architecture
-- Authentication System
-- Calendar Application
-- Profile Page
-- Analytics Integration (GA, Firebase, etc.)
-- Signin/Signup Screens
+```sh
+# Using npm
+npm run android
 
----
+# OR using Yarn
+yarn android
+```
 
-## 🛠 Built With
-- React Native
-- Redux
-- React Navigation
+### iOS
 
----
+For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
 
-## 📦 Components
-- UI Elements (Buttons, Modals, Forms)
-- Authentication (Login, Signup)
-- Charts
-- Analytics Integration
-- User Profile
-- Navigation
+The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
 
----
+```sh
+bundle install
+```
 
-## 👨‍💻 How to Contribute
-- **Star this repo ⭐** - show some love.
-- **Report bugs** - but be nice.
-- **Join the [Discord](https://discord.gg/flatlogic-community)** - meet fellow devs.
+Then, and every time you update your native dependencies, run:
 
----
+```sh
+bundle exec pod install
+```
 
-## 🔥 About Flatlogic
-[Flatlogic](https://flatlogic.com/ai-software-development-agent) builds modern business software so you don't have to. Our AI Software Development Agent helps you generate, deploy, and maintain enterprise applications with minimal effort.
+For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
 
----
+```sh
+# Using npm
+npm run ios
 
-> **Questions or feedback?**  
-> Join our [Flatlogic Community Discord](https://discord.gg/flatlogic-community) or visit our [support forum](https://flatlogic.com/forum). We might even reply!
+# OR using Yarn
+yarn ios
+```
 
+If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
 
-## License
+This is one way to run your app — you can also build it directly from Android Studio or Xcode.
 
-[MIT License](LICENSE)
+## Step 3: Modify your app
+
+Now that you have successfully run the app, let's make changes!
+
+Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+
+When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+
+- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
+- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+
+## Congratulations! :tada:
+
+You've successfully run and modified your React Native App. :partying_face:
+
+### Now what?
+
+- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
+- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+
+# Troubleshooting
+
+If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+
+# Learn More
+
+To learn more about React Native, take a look at the following resources:
+
+- [React Native Website](https://reactnative.dev) - learn more about React Native.
+- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
+- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
+- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
+- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
