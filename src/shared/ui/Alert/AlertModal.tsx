@@ -102,7 +102,7 @@ export const AlertModal: React.FC = () => {
           <BlurView
             style={StyleSheet.absoluteFill}
             blurType={isDarkMode ? 'dark' : 'light'}
-            blurAmount={12}
+            blurAmount={15}
           />
         ) : (
           <View
@@ -131,51 +131,57 @@ export const AlertModal: React.FC = () => {
           exiting={FadeOut.duration(150)}
           style={styles.cardContainer}
         >
-          <Card isDarkMode={isDarkMode} style={styles.card}>
-            {renderHeaderIcon()}
-            
-            <Text style={[styles.title, isDarkMode ? styles.textDark : styles.textLight]}>
-              {activeAlert.title}
-            </Text>
-            
-            <Text style={[styles.message, isDarkMode ? styles.descDark : styles.descLight]}>
-              {activeAlert.message}
-            </Text>
+          {/* We apply a dedicated alertCard style to override default transparency and avoid bleeding */}
+          <Card
+            isDarkMode={isDarkMode}
+            style={[styles.card, isDarkMode ? styles.cardDark : styles.cardLight]}
+          >
+            <View style={styles.innerContent}>
+              {renderHeaderIcon()}
+              
+              <Text style={[styles.title, isDarkMode ? styles.textDark : styles.textLight]}>
+                {activeAlert.title}
+              </Text>
+              
+              <Text style={[styles.message, isDarkMode ? styles.descDark : styles.descLight]}>
+                {activeAlert.message}
+              </Text>
 
-            <View style={[styles.buttonContainer, buttons.length > 2 ? styles.buttonContainerVertical : null]}>
-              {buttons.map((btn, index) => {
-                const isDestructive = btn.style === 'destructive';
-                const isCancel = btn.style === 'cancel';
-                
-                let buttonStyle = isDarkMode ? styles.buttonDefaultDark : styles.buttonDefaultLight;
-                let textStyle = isDarkMode ? styles.btnTextDark : styles.btnTextLight;
+              <View style={[styles.buttonContainer, buttons.length > 2 ? styles.buttonContainerVertical : null]}>
+                {buttons.map((btn, index) => {
+                  const isDestructive = btn.style === 'destructive';
+                  const isCancel = btn.style === 'cancel';
+                  
+                  let buttonStyle = isDarkMode ? styles.buttonDefaultDark : styles.buttonDefaultLight;
+                  let textStyle = isDarkMode ? styles.btnTextDark : styles.btnTextLight;
 
-                if (isDestructive) {
-                  buttonStyle = isDarkMode ? styles.buttonDestructiveDark : styles.buttonDestructiveLight;
-                  textStyle = styles.btnTextDestructive;
-                } else if (isCancel) {
-                  buttonStyle = isDarkMode ? styles.buttonCancelDark : styles.buttonCancelLight;
-                  textStyle = isDarkMode ? styles.btnTextCancelDark : styles.btnTextCancelLight;
-                }
+                  if (isDestructive) {
+                    buttonStyle = isDarkMode ? styles.buttonDestructiveDark : styles.buttonDestructiveLight;
+                    textStyle = styles.btnTextDestructive;
+                  } else if (isCancel) {
+                    buttonStyle = isDarkMode ? styles.buttonCancelDark : styles.buttonCancelLight;
+                    textStyle = isDarkMode ? styles.btnTextCancelDark : styles.btnTextCancelLight;
+                  }
 
-                return (
-                  <TouchableOpacity
-                    key={index}
-                    activeOpacity={0.7}
-                    onPress={() => handleButtonPress(btn.onPress)}
-                    style={[
-                      styles.button,
-                      buttons.length > 2 ? styles.buttonVertical : styles.buttonHorizontal,
-                      buttonStyle,
-                      index > 0 && (buttons.length > 2 ? styles.buttonMarginTop : styles.buttonMarginLeft),
-                    ]}
-                  >
-                    <Text style={[styles.btnText, textStyle]}>
-                      {btn.text}
-                    </Text>
-                  </TouchableOpacity>
-                );
-              })}
+                  return (
+                    <TouchableOpacity
+                      key={index}
+                      activeOpacity={0.7}
+                      onPress={() => handleButtonPress(btn.onPress)}
+                      style={[
+                        styles.button,
+                        buttons.length > 2 ? styles.buttonVertical : styles.buttonHorizontal,
+                        buttonStyle,
+                        index > 0 && (buttons.length > 2 ? styles.buttonMarginTop : styles.buttonMarginLeft),
+                      ]}
+                    >
+                      <Text style={[styles.btnText, textStyle]}>
+                        {btn.text}
+                      </Text>
+                    </TouchableOpacity>
+                  );
+                })}
+              </View>
             </View>
           </Card>
         </Animated.View>
@@ -192,58 +198,67 @@ const styles = StyleSheet.create({
     padding: 24,
   },
   androidOverlay: {
-    opacity: 0.7,
+    opacity: 0.75,
   },
   bgDarkOverlay: {
-    backgroundColor: '#000000',
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
   },
   bgLightOverlay: {
-    backgroundColor: '#374151',
+    backgroundColor: 'rgba(55, 65, 81, 0.45)',
   },
   dismissArea: {
     flex: 1,
   },
   cardContainer: {
     width: '100%',
-    maxWidth: 340,
+    maxWidth: 320,
     zIndex: 10,
     position: 'absolute',
   },
   card: {
-    padding: 24,
-    paddingTop: 32,
-    borderRadius: 28,
+    borderRadius: 24,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 12 },
-    shadowOpacity: 0.35,
-    shadowRadius: 24,
-    elevation: 10,
+    shadowOpacity: 0.25,
+    shadowRadius: 20,
+    elevation: 8,
+  },
+  cardLight: {
+    // Increase white opacity to block background bleeding and guarantee premium contrast
+    backgroundColor: 'rgba(255, 255, 255, 0.88)',
+  },
+  cardDark: {
+    backgroundColor: 'rgba(18, 24, 38, 0.92)',
+  },
+  innerContent: {
     alignItems: 'center',
+    width: '100%',
+    padding: 20,
   },
   iconBadge: {
-    width: 56,
-    height: 56,
-    borderRadius: 28,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 16,
-    borderWidth: 1,
+    borderWidth: 1.5,
   },
   iconBadgeDestructiveLight: {
-    backgroundColor: 'rgba(239, 68, 68, 0.1)',
+    backgroundColor: 'rgba(239, 68, 68, 0.08)',
     borderColor: 'rgba(239, 68, 68, 0.2)',
   },
   iconBadgeDestructiveDark: {
     backgroundColor: 'rgba(239, 68, 68, 0.15)',
-    borderColor: 'rgba(239, 68, 68, 0.3)',
+    borderColor: 'rgba(239, 68, 68, 0.35)',
   },
   iconBadgeDefaultLight: {
-    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+    backgroundColor: 'rgba(59, 130, 246, 0.08)',
     borderColor: 'rgba(59, 130, 246, 0.2)',
   },
   iconBadgeDefaultDark: {
     backgroundColor: 'rgba(59, 130, 246, 0.15)',
-    borderColor: 'rgba(59, 130, 246, 0.3)',
+    borderColor: 'rgba(59, 130, 246, 0.35)',
   },
   title: {
     fontSize: 20,
@@ -252,8 +267,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   message: {
-    fontSize: 15,
-    lineHeight: 22,
+    fontSize: 14,
+    lineHeight: 20,
     marginBottom: 24,
     textAlign: 'center',
   },
@@ -278,8 +293,8 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   button: {
-    height: 48,
-    borderRadius: 14,
+    height: 46,
+    borderRadius: 12,
     justifyContent: 'center',
     alignItems: 'center',
     flexGrow: 1,
@@ -293,15 +308,15 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   buttonCancelLight: {
-    backgroundColor: 'rgba(0, 0, 0, 0.04)',
-    borderColor: 'rgba(0, 0, 0, 0.06)',
+    backgroundColor: 'rgba(0, 0, 0, 0.03)',
+    borderColor: 'rgba(0, 0, 0, 0.08)',
   },
   buttonCancelDark: {
-    backgroundColor: 'rgba(255, 255, 255, 0.06)',
-    borderColor: 'rgba(255, 255, 255, 0.1)',
+    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+    borderColor: 'rgba(255, 255, 255, 0.12)',
   },
   buttonDefaultLight: {
-    backgroundColor: 'rgba(59, 130, 246, 0.08)',
+    backgroundColor: 'rgba(59, 130, 246, 0.06)',
     borderColor: 'rgba(59, 130, 246, 0.15)',
   },
   buttonDefaultDark: {
@@ -309,7 +324,7 @@ const styles = StyleSheet.create({
     borderColor: 'rgba(59, 130, 246, 0.25)',
   },
   buttonDestructiveLight: {
-    backgroundColor: 'rgba(239, 68, 68, 0.08)',
+    backgroundColor: 'rgba(239, 68, 68, 0.06)',
     borderColor: 'rgba(239, 68, 68, 0.15)',
   },
   buttonDestructiveDark: {
