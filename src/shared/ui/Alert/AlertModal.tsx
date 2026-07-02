@@ -14,7 +14,7 @@ import Animated, {
   ZoomIn,
 } from 'react-native-reanimated';
 import { BlurView } from '@react-native-community/blur';
-import Svg, { Path } from 'react-native-svg';
+import { AlertTriangle, Info } from 'lucide-react-native';
 import { alertManager } from './AlertObserver';
 import { AlertInstance } from './Alert.types';
 import { Card } from '../Card/Card';
@@ -48,43 +48,13 @@ export const AlertModal: React.FC = () => {
     if (hasDestructive) {
       return (
         <View style={[styles.iconBadge, isDarkMode ? styles.iconBadgeDestructiveDark : styles.iconBadgeDestructiveLight]}>
-          <Svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <Path
-              d="M12 9v4M12 17h.01"
-              stroke="#ef4444"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <Path
-              d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"
-              stroke="#ef4444"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </Svg>
+          <AlertTriangle size={24} color="#ef4444" />
         </View>
       );
     }
     return (
       <View style={[styles.iconBadge, isDarkMode ? styles.iconBadgeDefaultDark : styles.iconBadgeDefaultLight]}>
-        <Svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-          <Path
-            d="M12 16v-4M12 8h.01"
-            stroke="#3b82f6"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <Path
-            d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            stroke="#3b82f6"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </Svg>
+        <Info size={24} color="#3b82f6" />
       </View>
     );
   };
