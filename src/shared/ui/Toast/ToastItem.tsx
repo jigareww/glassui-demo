@@ -238,8 +238,8 @@ export const ToastItem: React.FC<ToastItemProps> = memo(({ toast, onDismiss }) =
   };
 
   const enteringAnim = position === 'bottom'
-    ? SlideInDown.springify().damping(18).stiffness(130)
-    : SlideInUp.springify().damping(18).stiffness(130);
+    ? SlideInDown.duration(250)
+    : SlideInUp.duration(250);
 
   const exitingAnim = position === 'bottom'
     ? SlideOutDown.duration(200)
