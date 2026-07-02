@@ -11,7 +11,8 @@ import {
 import Animated, {
   FadeIn,
   FadeOut,
-  ZoomIn,
+  SlideInUp,
+  SlideOutUp,
 } from 'react-native-reanimated';
 import { BlurView } from '@react-native-community/blur';
 import { AlertTriangle, Info } from 'lucide-react-native';
@@ -97,8 +98,8 @@ export const AlertModal: React.FC = () => {
         </Animated.View>
 
         <Animated.View
-          entering={ZoomIn.duration(250)}
-          exiting={FadeOut.duration(150)}
+          entering={SlideInUp.duration(300)}
+          exiting={SlideOutUp.duration(200)}
           style={styles.cardContainer}
         >
           {/* We apply a dedicated alertCard style to override default transparency and avoid bleeding */}
