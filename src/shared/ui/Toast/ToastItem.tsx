@@ -1,4 +1,4 @@
-import React, { memo, useEffect } from 'react';
+import React, { memo, useEffect, useMemo } from 'react';
 import {
   Text,
   View,
@@ -16,10 +16,8 @@ import Animated, {
   withSpring,
   withTiming,
   runOnJS,
-  SlideInUp,
-  SlideOutUp,
-  SlideInDown,
-  SlideOutDown,
+  Keyframe,
+  LinearTransition,
 } from 'react-native-reanimated';
 import { Card } from '../Card';
 import { ToastInstance } from './Toast.types';
@@ -237,19 +235,38 @@ export const ToastItem: React.FC<ToastItemProps> = memo(({ toast, onDismiss }) =
     return <ToastIcon type={type} color={color} />;
   };
 
-  const enteringAnim = position === 'bottom'
-    ? SlideInDown.duration(250)
-    : SlideInUp.duration(250);
+  const enteringAnim = useMemo(() => {
+    if (position === 'bottom') {
+      return new Keyframe({
+        from: { transform: [{ translateY: 150 }], opacity: 0 },
+        to: { transform: [{ translateY: 0 }], opacity: 1 },
+      }).duration(320);
+    }
+    return new Keyframe({
+      from: { transform: [{ translateY: -180 }], opacity: 0 },
+      to: { transform: [{ translateY: 0 }], opacity: 1 },
+    }).duration(320);
+  }, [position]);
 
-  const exitingAnim = position === 'bottom'
-    ? SlideOutDown.duration(200)
-    : SlideOutUp.duration(200);
+  const exitingAnim = useMemo(() => {
+    if (position === 'bottom') {
+      return new Keyframe({
+        from: { transform: [{ translateY: 0 }], opacity: 1 },
+        to: { transform: [{ translateY: 150 }], opacity: 0 },
+      }).duration(220);
+    }
+    return new Keyframe({
+      from: { transform: [{ translateY: 0 }], opacity: 1 },
+      to: { transform: [{ translateY: -180 }], opacity: 0 },
+    }).duration(220);
+  }, [position]);
 
   return (
     <GestureDetector gesture={gesture}>
       <Animated.View
         entering={enteringAnim}
         exiting={exitingAnim}
+        layout={LinearTransition.duration(250)}
         style={[styles.toastItem, animatedStyle, options.style]}
       >
         <Card
