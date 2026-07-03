@@ -2506,11 +2506,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 26.0.1
-  resolution: "@types/node@npm:26.0.1"
+  version: 26.1.0
+  resolution: "@types/node@npm:26.1.0"
   dependencies:
     undici-types: ~8.3.0
-  checksum: 561615c0a31236709a5f525aac98564d9588ea84da511a6db7db064ebae28d32a120ae4bd3dcccfc05f1eacf5db5b7c5ecf24dad509b0e753f63846e3b7ee5a1
+  checksum: bbced3378635cb48e739e384e53ff4c7d3e18194a2e003fb5240fc4f6c18fdc9f2452539a9f6fa608ca7b510a40f844d483c23f5d8bd2cf2c245b16d43ce4236
   languageName: node
   linkType: hard
 
@@ -3377,9 +3377,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.30001799":
-  version: 1.0.30001799
-  resolution: "caniuse-lite@npm:1.0.30001799"
-  checksum: f2bc124c605b449bf0da14c6261dd13c7c808de3cd918c93ceb35b1bca9b3e69c1ff6dd7cdb73f0ce2b5c13e59e87b3eae85424980cf0ae5c3bedc692697809b
+  version: 1.0.30001800
+  resolution: "caniuse-lite@npm:1.0.30001800"
+  checksum: 347e1394aa05a29f06bfcddc27fc90abdece41fc7be56a2c0ff88ef6b53811ac67d27ae58634893a1f15f4de8a020b29e637ae74c627b7b0e12deb345214b9b4
   languageName: node
   linkType: hard
 
@@ -3957,9 +3957,9 @@ __metadata:
   linkType: hard
 
 "electron-to-chromium@npm:^1.5.376":
-  version: 1.5.381
-  resolution: "electron-to-chromium@npm:1.5.381"
-  checksum: 607e8ad48d833cc24c8302fc020978e82e965db6a9dea8260d1c4178c61dfead26a20bcff55f5798f735f8faa76aed6d6e140e1969b5c7233de676888676312c
+  version: 1.5.384
+  resolution: "electron-to-chromium@npm:1.5.384"
+  checksum: 9a7dc8afd1fd825ddb9ba55d897cae6a3faa894f31dbc8f48a48ce56369be1dbdc1373780ab9bca145a9d17c9f9db4446e229315490d80a505b02ec98e751a31
   languageName: node
   linkType: hard
 
@@ -7593,8 +7593,8 @@ __metadata:
   linkType: hard
 
 "react-native-worklets@npm:^0.10.0":
-  version: 0.10.0
-  resolution: "react-native-worklets@npm:0.10.0"
+  version: 0.10.1
+  resolution: "react-native-worklets@npm:0.10.1"
   dependencies:
     "@babel/plugin-transform-arrow-functions": ^7.27.1
     "@babel/plugin-transform-class-properties": ^7.28.6
@@ -7613,7 +7613,7 @@ __metadata:
     "@react-native/metro-config": "*"
     react: "*"
     react-native: 0.83 - 0.86
-  checksum: 99a289a9638fd2dbaab0095d65bc5735714e1a766b000f88b01ddceb14e7a348d031c4ac7f4bd033518cf09a5b12be49068b0d10caa1d78da6812f2106f66ca6
+  checksum: a0b26b9a382d34b03ae39fb2035a871684a36f0726a8c858e415f78be6a8711e60bbbcd555c0717b46809666591d9cc0040ba9e463b9c23a5738ee29f5019947
   languageName: node
   linkType: hard
 

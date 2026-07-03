@@ -33,19 +33,22 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 16,
-    borderWidth: 1,
     overflow: 'hidden',
   },
   inputWrapperLight: {
+    borderWidth: 1,
     borderColor: 'rgba(0, 0, 0, 0.08)',
   },
   inputWrapperDark: {
+    borderWidth: 1,
     borderColor: 'rgba(255, 255, 255, 0.12)',
   },
   inputWrapperFocusedLight: {
+    borderWidth: 1,
     borderColor: '#3b82f6',
   },
   inputWrapperFocusedDark: {
+    borderWidth: 1,
     borderColor: '#60a5fa',
   },
   solidLight: {

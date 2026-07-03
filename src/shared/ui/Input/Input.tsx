@@ -1,8 +1,4 @@
-import React, {
-  memo,
-  useMemo,
-  useState,
-} from 'react';
+import React, { memo, useMemo, useState } from "react";
 import {
   View,
   Text,
@@ -10,17 +6,17 @@ import {
   TouchableOpacity,
   StyleSheet,
   Platform,
-} from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-import Svg, { Path } from 'react-native-svg';
-import { RENDER_MODES } from '../Button/Button.constants';
-import { getGlassRenderMode } from '../Button/Button.utils';
-import { InputProps } from './Input.types';
-import { styles } from './Input.styles';
+} from "react-native";
+import LinearGradient from "react-native-linear-gradient";
+import Svg, { Path } from "react-native-svg";
+import { RENDER_MODES } from "../Button/Button.constants";
+import { getGlassRenderMode } from "../Button/Button.utils";
+import { InputProps } from "./Input.types";
+import { styles } from "./Input.styles";
 
 let NativeLiquidGlassView: React.ComponentType<any> | null = null;
 try {
-  const lib = require('@callstack/liquid-glass');
+  const lib = require("@callstack/liquid-glass");
   if (lib && lib.LiquidGlassView) {
     NativeLiquidGlassView = lib.LiquidGlassView;
   }
@@ -30,7 +26,7 @@ try {
 
 let NativeBlurView: React.ComponentType<any> | null = null;
 try {
-  const lib = require('@react-native-community/blur');
+  const lib = require("@react-native-community/blur");
   if (lib && lib.BlurView) {
     NativeBlurView = lib.BlurView;
   }
@@ -38,16 +34,15 @@ try {
   // Fallback
 }
 
-
 interface AuthIconProps {
-  name: 'email' | 'lock' | 'user' | 'eye' | 'eye-off';
+  name: "email" | "lock" | "user" | "eye" | "eye-off";
   color: string;
   size?: number;
 }
 
 const AuthIcon: React.FC<AuthIconProps> = memo(({ name, color, size = 20 }) => {
   switch (name) {
-    case 'email':
+    case "email":
       return (
         <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
           <Path
@@ -59,7 +54,7 @@ const AuthIcon: React.FC<AuthIconProps> = memo(({ name, color, size = 20 }) => {
           />
         </Svg>
       );
-    case 'lock':
+    case "lock":
       return (
         <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
           <Path
@@ -78,7 +73,7 @@ const AuthIcon: React.FC<AuthIconProps> = memo(({ name, color, size = 20 }) => {
           />
         </Svg>
       );
-    case 'user':
+    case "user":
       return (
         <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
           <Path
@@ -97,7 +92,7 @@ const AuthIcon: React.FC<AuthIconProps> = memo(({ name, color, size = 20 }) => {
           />
         </Svg>
       );
-    case 'eye':
+    case "eye":
       return (
         <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
           <Path
@@ -116,7 +111,7 @@ const AuthIcon: React.FC<AuthIconProps> = memo(({ name, color, size = 20 }) => {
           />
         </Svg>
       );
-    case 'eye-off':
+    case "eye-off":
       return (
         <Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
           <Path
@@ -140,216 +135,288 @@ const AuthIcon: React.FC<AuthIconProps> = memo(({ name, color, size = 20 }) => {
   }
 });
 
-let lastLoggedHash = '';
+let lastLoggedHash = "";
 
-export const Input: React.FC<InputProps> = memo(({
-  label,
-  isDarkMode = false,
-  iconName,
-  disableLiquidGlass = false,
-  disableBlur = false,
-  containerStyle,
-  secureTextEntry,
-  style,
-  ...props
-}) => {
-  const [isFocused, setIsFocused] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
+export const Input: React.FC<InputProps> = memo(
+  ({
+    label,
+    isDarkMode = false,
+    iconName,
+    disableLiquidGlass = false,
+    disableBlur = false,
+    containerStyle,
+    secureTextEntry,
+    style,
+    ...props
+  }) => {
+    const [isFocused, setIsFocused] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
 
-  const { renderMode, audit, blurSupported } = useMemo(() => {
-    return getGlassRenderMode(disableLiquidGlass, disableBlur);
-  }, [disableLiquidGlass, disableBlur]);
+    const { renderMode, audit, blurSupported } = useMemo(() => {
+      return getGlassRenderMode(disableLiquidGlass, disableBlur);
+    }, [disableLiquidGlass, disableBlur]);
 
-  React.useEffect(() => {
-    const configHash = `input-${renderMode}-${audit.isSupported}-${audit.fallbackReason || 'no-reason'}`;
-    if (lastLoggedHash === configHash) return;
-    lastLoggedHash = configHash;
+    React.useEffect(() => {
+      const configHash = `input-${renderMode}-${audit.isSupported}-${
+        audit.fallbackReason || "no-reason"
+      }`;
+      if (lastLoggedHash === configHash) return;
+      lastLoggedHash = configHash;
 
-    console.log('[Input] Production Integration Diagnostics Audit:');
-    console.log(` - Selected Render Mode: "${renderMode}"`);
-    console.log(` - JS Package Installed: ${audit.jsPackageInstalled ? 'YES' : 'NO'}`);
-    console.log(` - Native TurboModule Registered: ${audit.nativeModuleAvailable ? 'YES' : 'NO'}`);
-    console.log(` - Native Component Registered: ${audit.nativeComponentRegistered ? 'YES' : 'NO'}`);
-    console.log(` - New Architecture / Fabric: ${audit.fabricEnabled ? 'Fabric Active (New Arch)' : 'Paper Active (Old Arch)'}`);
-    console.log(` - iOS Version: ${audit.isIos ? audit.iosVersion : 'N/A (Android/Web)'}`);
-    console.log(` - Device Supported: ${audit.deviceSupported ? 'YES' : 'NO'}`);
-    console.log(` - Blur View Supported: ${blurSupported ? 'YES' : 'NO'}`);
-    
-    if (renderMode !== RENDER_MODES.LIQUID_GLASS && audit.isIos) {
-      console.warn(`[Input] Liquid Glass input disabled. Fallback Reason: ${audit.fallbackReason || 'Disabled via props'}`);
-    }
-  }, [renderMode, audit, blurSupported]);
+      console.log("[Input] Production Integration Diagnostics Audit:");
+      console.log(` - Selected Render Mode: "${renderMode}"`);
+      console.log(
+        ` - JS Package Installed: ${audit.jsPackageInstalled ? "YES" : "NO"}`,
+      );
+      console.log(
+        ` - Native TurboModule Registered: ${
+          audit.nativeModuleAvailable ? "YES" : "NO"
+        }`,
+      );
+      console.log(
+        ` - Native Component Registered: ${
+          audit.nativeComponentRegistered ? "YES" : "NO"
+        }`,
+      );
+      console.log(
+        ` - New Architecture / Fabric: ${
+          audit.fabricEnabled
+            ? "Fabric Active (New Arch)"
+            : "Paper Active (Old Arch)"
+        }`,
+      );
+      console.log(
+        ` - iOS Version: ${
+          audit.isIos ? audit.iosVersion : "N/A (Android/Web)"
+        }`,
+      );
+      console.log(
+        ` - Device Supported: ${audit.deviceSupported ? "YES" : "NO"}`,
+      );
+      console.log(` - Blur View Supported: ${blurSupported ? "YES" : "NO"}`);
 
-  const handleFocus = (e: any) => {
-    setIsFocused(true);
-    if (props.onFocus) {
-      props.onFocus(e);
-    }
-  };
+      if (renderMode !== RENDER_MODES.LIQUID_GLASS && audit.isIos) {
+        console.warn(
+          `[Input] Liquid Glass input disabled. Fallback Reason: ${
+            audit.fallbackReason || "Disabled via props"
+          }`,
+        );
+      }
+    }, [renderMode, audit, blurSupported]);
 
-  const handleBlur = (e: any) => {
-    setIsFocused(false);
-    if (props.onBlur) {
-      props.onBlur(e);
-    }
-  };
+    const handleFocus = (e: any) => {
+      setIsFocused(true);
+      if (props.onFocus) {
+        props.onFocus(e);
+      }
+    };
 
+    const handleBlur = (e: any) => {
+      setIsFocused(false);
+      if (props.onBlur) {
+        props.onBlur(e);
+      }
+    };
 
-  const placeholderColor = useMemo(() => {
-    return isDarkMode ? 'rgba(255, 255, 255, 0.4)' : 'rgba(0, 0, 0, 0.4)';
-  }, [isDarkMode]);
+    const placeholderColor = useMemo(() => {
+      return isDarkMode ? "rgba(255, 255, 255, 0.4)" : "rgba(0, 0, 0, 0.4)";
+    }, [isDarkMode]);
 
-  const activeIconColor = useMemo(() => {
-    if (isFocused) {
-      return isDarkMode ? '#60a5fa' : '#3b82f6';
-    }
-    return isDarkMode ? 'rgba(255, 255, 255, 0.5)' : 'rgba(0, 0, 0, 0.5)';
-  }, [isFocused, isDarkMode]);
+    const activeIconColor = useMemo(() => {
+      if (isFocused) {
+        return isDarkMode ? "#60a5fa" : "#3b82f6";
+      }
+      return isDarkMode ? "rgba(255, 255, 255, 0.5)" : "rgba(0, 0, 0, 0.5)";
+    }, [isFocused, isDarkMode]);
 
-  const wrapperStyle = useMemo(() => {
-    return [
-      styles.inputWrapper,
-      isDarkMode ? styles.inputWrapperDark : styles.inputWrapperLight,
-      isFocused && (isDarkMode ? styles.inputWrapperFocusedDark : styles.inputWrapperFocusedLight),
-    ];
-  }, [isFocused, isDarkMode]);
+    const wrapperStyle = useMemo(() => {
+      return [
+        styles.inputWrapper,
+        isDarkMode ? styles.inputWrapperDark : styles.inputWrapperLight,
+        isFocused &&
+          (isDarkMode
+            ? styles.inputWrapperFocusedDark
+            : styles.inputWrapperFocusedLight),
+      ];
+    }, [isFocused, isDarkMode]);
 
-  const renderLiquidGlass = () => {
-    if (!NativeLiquidGlassView) {
-      return renderBlurFallback();
-    }
-    return (
-      <NativeLiquidGlassView
-        style={[styles.innerContainer, { borderRadius: 16 }]}
-        interactive={false}
-        effect="clear"
-        colorScheme={isDarkMode ? 'dark' : 'light'}
-        tintColor={isDarkMode ? 'rgba(8, 17, 44, 0.65)' : 'rgba(255, 255, 255, 0.45)'}
-        pointerEvents="none"
-      >
-        <LinearGradient
-          colors={
-            isDarkMode
-              ? ['rgba(255, 255, 255, 0.15)', 'rgba(255, 255, 255, 0.02)', 'rgba(255, 255, 255, 0.05)']
-              : ['rgba(255, 255, 255, 0.35)', 'rgba(255, 255, 255, 0.05)', 'rgba(255, 255, 255, 0.15)']
+    const renderLiquidGlass = () => {
+      if (!NativeLiquidGlassView) {
+        return renderBlurFallback();
+      }
+      return (
+        <NativeLiquidGlassView
+          style={[styles.innerContainer, { borderRadius: 16 }]}
+          interactive={false}
+          effect="clear"
+          colorScheme={isDarkMode ? "dark" : "light"}
+          tintColor={
+            isDarkMode ? "rgba(8, 17, 44, 0.65)" : "rgba(255, 255, 255, 0.45)"
           }
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          style={[StyleSheet.absoluteFill, styles.borderOverlay, { borderRadius: 16 }]}
           pointerEvents="none"
-        />
-      </NativeLiquidGlassView>
-    );
-  };
+        >
+          <LinearGradient
+            colors={
+              isDarkMode
+                ? [
+                    "rgba(255, 255, 255, 0.15)",
+                    "rgba(255, 255, 255, 0.02)",
+                    "rgba(255, 255, 255, 0.05)",
+                  ]
+                : [
+                    "rgba(255, 255, 255, 0.35)",
+                    "rgba(255, 255, 255, 0.05)",
+                    "rgba(255, 255, 255, 0.15)",
+                  ]
+            }
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={[
+              StyleSheet.absoluteFill,
+              styles.borderOverlay,
+              { borderRadius: 16 },
+            ]}
+            pointerEvents="none"
+          />
+        </NativeLiquidGlassView>
+      );
+    };
 
-  const renderBlurFallback = () => {
-    if (!NativeBlurView) {
-      return renderSolidFallback();
-    }
-    return (
-      <View style={StyleSheet.absoluteFill} pointerEvents="none">
-        <NativeBlurView
-          style={StyleSheet.absoluteFill}
-          blurType={isDarkMode ? 'dark' : 'light'}
-          blurAmount={Platform.OS === 'ios' ? 20 : 15}
-          overlayColor="transparent"
-        />
-        <View
-          style={[
-            StyleSheet.absoluteFill,
-            isDarkMode
-              ? Platform.OS === 'ios'
-                ? styles.overlayDark
-                : styles.overlayDarkAndroid
-              : Platform.OS === 'ios'
+    const renderBlurFallback = () => {
+      if (!NativeBlurView) {
+        return renderSolidFallback();
+      }
+      return (
+        <View style={StyleSheet.absoluteFill} pointerEvents="none">
+          <NativeBlurView
+            style={StyleSheet.absoluteFill}
+            blurType={isDarkMode ? "dark" : "light"}
+            blurAmount={Platform.OS === "ios" ? 20 : 15}
+            overlayColor="transparent"
+          />
+          <View
+            style={[
+              StyleSheet.absoluteFill,
+              isDarkMode
+                ? Platform.OS === "ios"
+                  ? styles.overlayDark
+                  : styles.overlayDarkAndroid
+                : Platform.OS === "ios"
                 ? styles.overlayLight
                 : styles.overlayLightAndroid,
-          ]}
-          pointerEvents="none"
-        />
-        <LinearGradient
-          colors={
-            isDarkMode
-              ? ['rgba(255, 255, 255, 0.15)', 'rgba(255, 255, 255, 0.02)', 'rgba(255, 255, 255, 0.05)']
-              : ['rgba(255, 255, 255, 0.35)', 'rgba(255, 255, 255, 0.05)', 'rgba(255, 255, 255, 0.15)']
-          }
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          style={[StyleSheet.absoluteFill, styles.borderOverlay, { borderRadius: 16 }]}
-          pointerEvents="none"
-        />
+              Platform.OS === "android" && !isFocused
+                ? {
+                    borderWidth: 1,
+                    borderColor: isDarkMode
+                      ? "rgba(255, 255, 255, 0.12)"
+                      : "rgba(0, 0, 0, 0.08)",
+                    borderRadius: 16,
+                  }
+                : null,
+            ]}
+            pointerEvents="none"
+          />
+          <LinearGradient
+            colors={
+              isDarkMode
+                ? [
+                    "rgba(255, 255, 255, 0.15)",
+                    "rgba(255, 255, 255, 0.02)",
+                    "rgba(255, 255, 255, 0.05)",
+                  ]
+                : [
+                    "rgba(255, 255, 255, 0.35)",
+                    "rgba(255, 255, 255, 0.05)",
+                    "rgba(255, 255, 255, 0.15)",
+                  ]
+            }
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={[
+              StyleSheet.absoluteFill,
+              styles.borderOverlay,
+              { borderRadius: 16 },
+            ]}
+            pointerEvents="none"
+          />
+        </View>
+      );
+    };
+
+    const renderSolidFallback = () => (
+      <View
+        style={[
+          StyleSheet.absoluteFill,
+          isDarkMode ? styles.solidDark : styles.solidLight,
+          { borderRadius: 16 },
+        ]}
+        pointerEvents="none"
+      />
+    );
+
+    const renderLayers = () => {
+      switch (renderMode) {
+        case RENDER_MODES.LIQUID_GLASS:
+          return renderLiquidGlass();
+        case RENDER_MODES.BLUR:
+          return renderBlurFallback();
+        case RENDER_MODES.SOLID:
+        default:
+          return renderSolidFallback();
+      }
+    };
+
+    return (
+      <View style={[styles.outerContainer, containerStyle]}>
+        {label && (
+          <Text
+            style={[
+              styles.label,
+              isDarkMode ? styles.labelDark : styles.labelLight,
+            ]}
+          >
+            {label}
+          </Text>
+        )}
+
+        <View style={wrapperStyle} renderToHardwareTextureAndroid={false}>
+          {renderLayers()}
+
+          {iconName && (
+            <View style={styles.iconLeft}>
+              <AuthIcon name={iconName} color={activeIconColor} />
+            </View>
+          )}
+
+          <TextInput
+            {...props}
+            placeholderTextColor={placeholderColor}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            secureTextEntry={secureTextEntry && !showPassword}
+            style={[
+              styles.textInput,
+              isDarkMode ? styles.textInputDark : styles.textInputLight,
+              style,
+            ]}
+          />
+
+          {secureTextEntry && (
+            <TouchableOpacity
+              onPress={() => setShowPassword(!showPassword)}
+              activeOpacity={0.7}
+              style={styles.iconRight}
+            >
+              <AuthIcon
+                name={showPassword ? "eye-off" : "eye"}
+                color={activeIconColor}
+              />
+            </TouchableOpacity>
+          )}
+        </View>
       </View>
     );
-  };
+  },
+);
 
-  const renderSolidFallback = () => (
-    <View
-      style={[
-        StyleSheet.absoluteFill,
-        isDarkMode ? styles.solidDark : styles.solidLight,
-        { borderRadius: 16 },
-      ]}
-      pointerEvents="none"
-    />
-  );
-
-  const renderLayers = () => {
-    switch (renderMode) {
-      case RENDER_MODES.LIQUID_GLASS:
-        return renderLiquidGlass();
-      case RENDER_MODES.BLUR:
-        return renderBlurFallback();
-      case RENDER_MODES.SOLID:
-      default:
-        return renderSolidFallback();
-    }
-  };
-
-  return (
-    <View style={[styles.outerContainer, containerStyle]}>
-      {label && (
-        <Text style={[styles.label, isDarkMode ? styles.labelDark : styles.labelLight]}>
-          {label}
-        </Text>
-      )}
-
-      <View style={wrapperStyle}>
-        {renderLayers()}
-
-        {iconName && (
-          <View style={styles.iconLeft}>
-            <AuthIcon name={iconName} color={activeIconColor} />
-          </View>
-        )}
-
-        <TextInput
-          {...props}
-          placeholderTextColor={placeholderColor}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          secureTextEntry={secureTextEntry && !showPassword}
-          style={[
-            styles.textInput,
-            isDarkMode ? styles.textInputDark : styles.textInputLight,
-            style,
-          ]}
-        />
-
-        {secureTextEntry && (
-          <TouchableOpacity
-            onPress={() => setShowPassword(!showPassword)}
-            activeOpacity={0.7}
-            style={styles.iconRight}
-          >
-            <AuthIcon
-              name={showPassword ? 'eye-off' : 'eye'}
-              color={activeIconColor}
-            />
-          </TouchableOpacity>
-        )}
-      </View>
-    </View>
-  );
-});
-
-Input.displayName = 'Input';
+Input.displayName = "Input";

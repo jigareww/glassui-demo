@@ -184,7 +184,6 @@ const styles = StyleSheet.create({
     width: '100%',
     maxWidth: 320,
     zIndex: 10,
-    position: 'absolute',
   },
   card: {
     borderRadius: 24,

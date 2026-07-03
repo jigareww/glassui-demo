@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     width: '100%',
     borderRadius: 24,
     // @ts-ignore - boxShadow is supported in RN 0.86+ on Fabric
-    boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.25)',
+    // boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
   },
   innerContainer: {
     ...absoluteFill,
@@ -21,14 +21,8 @@ export const styles = StyleSheet.create({
     overflow: 'hidden',
     zIndex: 1,
   },
-  innerContainerDark: {
-    borderWidth: 1,
-    borderColor: 'rgba(255, 255, 255, 0.1)',
-  },
-  innerContainerLight: {
-    borderWidth: 1,
-    borderColor: 'rgba(0, 0, 0, 0.05)',
-  },
+  innerContainerDark: {},
+  innerContainerLight: {},
   solidLight: {
     backgroundColor: '#ffffff',
   },
@@ -36,13 +30,13 @@ export const styles = StyleSheet.create({
     backgroundColor: '#111827',
   },
   overlayLight: {
-    backgroundColor: 'rgba(255, 255, 255, 0.4)',
+    backgroundColor: 'rgba(116, 116, 128, 0.08)',
   },
   overlayDark: {
     backgroundColor: 'rgba(8, 17, 44, 0.65)',
   },
   overlayLightAndroid: {
-    backgroundColor: 'rgba(255, 255, 255, 0.35)',
+    backgroundColor: 'rgba(116, 116, 128, 0.08)',
   },
   overlayDarkAndroid: {
     backgroundColor: 'rgba(15, 20, 35, 0.75)',

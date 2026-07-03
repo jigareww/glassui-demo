@@ -195,7 +195,10 @@ export const Card: React.FC<CardProps> = memo(({
   };
 
   return (
-    <View style={containerStyle}>
+    <View
+      style={containerStyle}
+      renderToHardwareTextureAndroid={false}
+    >
       {renderLayers()}
       <View style={[styles.content, contentStyle]}>
         {children}
