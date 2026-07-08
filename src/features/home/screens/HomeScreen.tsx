@@ -10,18 +10,19 @@ import Animated, { FadeIn } from 'react-native-reanimated';
 import { GlassPayCard } from '../components/GlassPayCard';
 import { QuickActionHub } from '../components/QuickActionHub';
 import { RecentActivity } from '../components/RecentActivity';
-import { NotificationSandbox } from '../components/NotificationSandbox';
 
 interface HomeScreenProps {
   email: string;
   isDarkMode: boolean;
   onSignOut: () => void;
+  onNavigate: (screen: 'transfer' | 'swap' | 'staking' | 'nfts' | 'walletconnect' | 'token-detail' | 'receive') => void;
 }
 
 export const HomeScreen: React.FC<HomeScreenProps> = memo(({
   email,
   isDarkMode,
   onSignOut,
+  onNavigate,
 }) => {
   const themeColor = isDarkMode ? '#60a5fa' : '#3b82f6';
 
@@ -57,17 +58,12 @@ export const HomeScreen: React.FC<HomeScreenProps> = memo(({
 
         {/* 2. Quick Action Hub */}
         <Animated.View entering={FadeIn.duration(400).delay(200)}>
-          <QuickActionHub isDarkMode={isDarkMode} themeColor={themeColor} />
+          <QuickActionHub isDarkMode={isDarkMode} themeColor={themeColor} onNavigate={onNavigate} />
         </Animated.View>
 
         {/* 3. Recent Transactions */}
         <Animated.View entering={FadeIn.duration(400).delay(300)}>
           <RecentActivity isDarkMode={isDarkMode} />
-        </Animated.View>
-
-        {/* 4. Sandbox: Toast Test Panel */}
-        <Animated.View entering={FadeIn.duration(400).delay(400)}>
-          <NotificationSandbox isDarkMode={isDarkMode} />
         </Animated.View>
       </ScrollView>
     </View>
@@ -119,7 +115,7 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     paddingHorizontal: 24,
-    paddingBottom: 40,
+    paddingBottom: 110,
     paddingTop: 16,
   },
   subtitle: {

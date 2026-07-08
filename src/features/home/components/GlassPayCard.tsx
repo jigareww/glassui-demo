@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Card } from '../../../shared/ui/Card';
+import { useTokenStore } from '../../tokens/store/useTokenStore';
+import { useNetworkStore } from '../../network';
 
 interface GlassPayCardProps {
   email: string;
@@ -8,11 +10,44 @@ interface GlassPayCardProps {
 }
 
 export const GlassPayCard: React.FC<GlassPayCardProps> = ({ email, isDarkMode }) => {
-  const cardHolderName = email ? email.split('@')[0] : 'user';
+  const { nativeBalance, tokenBalances } = useTokenStore();
+  const { activeChainId } = useNetworkStore();
+
+  const isAddress = email.includes('EVM:') || email.includes('SOL:');
+  const cardHolderName = isAddress ? 'Active Wallet' : (email ? email.split('@')[0] : 'user');
+  const cardNumber = isAddress ? email.split(':')[1] : '•••• 5689';
   const textColor = isDarkMode ? '#ffffff' : '#111827';
   const labelColor = isDarkMode ? 'rgba(255, 255, 255, 0.6)' : 'rgba(17, 24, 39, 0.6)';
   const numberColor = isDarkMode ? 'rgba(255, 255, 255, 0.7)' : 'rgba(17, 24, 39, 0.7)';
   const chipBg = isDarkMode ? 'rgba(255, 255, 255, 0.25)' : 'rgba(17, 24, 39, 0.15)';
+
+  // Calculate fiat total from live balances (using approximate static prices for now)
+  const getFiatTotal = () => {
+    let total = 0;
+    const isEVM = activeChainId !== 'solana-mainnet' && activeChainId !== 'solana-devnet';
+    
+    // Add Native Balance
+    const nativeVal = parseFloat(nativeBalance) || 0;
+    if (isEVM) total += nativeVal * 2480.0; // Mock ETH price
+    else total += nativeVal * 140.0; // Mock SOL price
+
+    // Add Tokens (USDC/USDT = $1)
+    tokenBalances.forEach(tb => {
+      const tbVal = parseFloat(tb.balance) || 0;
+      if (tb.token.symbol.toUpperCase().includes('USD')) {
+        total += tbVal;
+      } else {
+        total += tbVal * 5.0; // Random altcoin price fallback
+      }
+    });
+    
+    return total;
+  };
+
+  const formattedFiat = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  }).format(getFiatTotal());
 
   return (
     <Card
@@ -26,10 +61,10 @@ export const GlassPayCard: React.FC<GlassPayCardProps> = ({ email, isDarkMode })
       </View>
       <View>
         <Text style={[styles.cardLabel, { color: labelColor }]}>Available Balance</Text>
-        <Text style={[styles.cardBalance, { color: textColor }]}>$12,480.50</Text>
+        <Text style={[styles.cardBalance, { color: textColor }]}>{formattedFiat}</Text>
       </View>
       <View style={styles.cardFooter}>
-        <Text style={[styles.cardNumber, { color: numberColor }]}>•••• 5689</Text>
+        <Text style={[styles.cardNumber, { color: numberColor }]}>{cardNumber}</Text>
         <Text style={[styles.cardHolder, { color: textColor, textTransform: 'capitalize' }]}>
           {cardHolderName}
         </Text>

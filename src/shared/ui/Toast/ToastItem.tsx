@@ -7,6 +7,7 @@ import {
   ActivityIndicator,
   useColorScheme,
   Platform,
+  Dimensions,
 } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 import { Gesture, GestureDetector } from 'react-native-gesture-handler';
@@ -297,8 +298,7 @@ export const ToastItem: React.FC<ToastItemProps> = memo(({ toast, onDismiss }) =
                 options.textStyle,
               ]}
               allowFontScaling={true}
-              numberOfLines={2}
-              adjustsFontSizeToFit={Platform.OS === 'ios'}
+              numberOfLines={4}
             >
               {message}
             </Text>
@@ -321,10 +321,11 @@ export const ToastItem: React.FC<ToastItemProps> = memo(({ toast, onDismiss }) =
 
 ToastItem.displayName = 'ToastItem';
 
+const { width: SCREEN_WIDTH } = Dimensions.get('window');
+
 const styles = StyleSheet.create({
   toastItem: {
-    width: TOAST_LAYOUT.WIDTH_PCT,
-    maxWidth: TOAST_LAYOUT.MAX_WIDTH,
+    width: Math.min(SCREEN_WIDTH * 0.9, TOAST_LAYOUT.MAX_WIDTH),
     alignSelf: 'center',
     marginVertical: 4,
     shadowColor: '#000000',
@@ -359,9 +360,11 @@ const styles = StyleSheet.create({
   },
   message: {
     flex: 1,
+    flexShrink: 1,
     fontSize: 14,
     fontWeight: '600',
     lineHeight: 18,
+    flexWrap: 'wrap',
     fontFamily: Platform.select({
       ios: 'System',
       android: 'sans-serif-medium',

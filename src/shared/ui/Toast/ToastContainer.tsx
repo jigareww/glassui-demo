@@ -23,7 +23,7 @@ export const ToastContainer: React.FC<ToastContainerProps> = memo(({ toasts, onD
   const bottomOffset = Math.max(insets.bottom, Platform.OS === 'ios' ? TOAST_LAYOUT.BOTTOM_OFFSET_IOS : TOAST_LAYOUT.BOTTOM_OFFSET_ANDROID);
 
   return (
-    <View style={StyleSheet.absoluteFill} pointerEvents="box-none">
+    <View style={[StyleSheet.absoluteFill, { width: '100%', height: '100%' }]} pointerEvents="box-none">
       {topToasts.length > 0 && (
         <View style={[styles.topContainer, { top: insets.top + 8 }]} pointerEvents="box-none">
           {topToasts.map((toast) => (
@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 0,
     right: 0,
+    width: '100%',
     alignItems: 'center',
     zIndex: 9999,
     flexDirection: 'column',
@@ -70,6 +71,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 0,
     right: 0,
+    width: '100%',
     alignItems: 'center',
     zIndex: 9999,
     flexDirection: 'column',
@@ -78,6 +80,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: 0,
     right: 0,
+    width: '100%',
     alignItems: 'center',
     zIndex: 9999,
     flexDirection: 'column-reverse',
