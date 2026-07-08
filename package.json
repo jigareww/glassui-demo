@@ -64,5 +64,10 @@
   "engines": {
     "node": ">= 22.11.0"
   },
-  "packageManager": "yarn@3.6.4"
+  "packageManager": "yarn@3.6.4",
+  "codegenConfig": {
+    "name": "AppIconSpec",
+    "type": "modules",
+    "jsSrcsDir": "src/native/AppIconModule"
+  }
 }

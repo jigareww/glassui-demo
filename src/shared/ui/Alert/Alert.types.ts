@@ -1,3 +1,4 @@
+import React from 'react';
 
 export interface AlertButton {
   text: string;
@@ -10,6 +11,8 @@ export interface AlertConfig {
   message: string;
   buttons?: AlertButton[];
   isDarkMode?: boolean;
+  customView?: React.ReactNode;
+  cancelable?: boolean;
 }
 
 export interface AlertInstance extends AlertConfig {

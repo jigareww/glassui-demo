@@ -7,24 +7,97 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		026E1EC5474AA332BFD2E2E2 /* gold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 69E90CE4AD14C8F896D1DE01 /* gold@2x.png */; };
 		0C80B921A6F3F58F76C31292 /* libPods-ReactNativeStarter.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-ReactNativeStarter.a */; };
+		0E8EFF4A769CD4DAA6CF10EF /* premium.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A7CE1FCA0C5487D6D549C96 /* premium.png */; };
+		120F96BC40B55FC736A32139 /* gold.png in Resources */ = {isa = PBXBuildFile; fileRef = 57550F5C542EEFA5FAA4B946 /* gold.png */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		1D6BBB93F0F1C2395C3E8141 /* holi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8AFAB586B4051E1A78834B3 /* holi@3x.png */; };
+		1E9C7494FC614A6486BF254E /* diwali@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 065B80197BEED60351CC81B7 /* diwali@2x.png */; };
+		2502F81756A449729A4F6DA7 /* premium@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5884BB4878166384D1B3F02E /* premium@2x.png */; };
 		26449B8218B2E7EA06B8B253 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
+		2913BE2C9552BF9527A04357 /* AppIconModuleImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDD9386C69F04C9742AEE0E /* AppIconModuleImpl.swift */; };
+		298A5FE1937A3228E4EA59A9 /* christmas-gold@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA8424AA1928DFE396D8CD0A /* christmas-gold@3x.png */; };
+		2F979A4061C24A2D31EAAC54 /* AppIconModule.mm in Sources */ = {isa = PBXBuildFile; fileRef = A6754E45021BC04BF241047C /* AppIconModule.mm */; };
+		3838FBC35C46BCC29E78DE0D /* diwali-gold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25621B866369BED01274F231 /* diwali-gold@2x.png */; };
+		399F9414B824970183434281 /* halloween@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF5B1CF4AB5D81E5DF02ADB2 /* halloween@2x.png */; };
+		40FBB0A4E8D5ADFD24AC361B /* holi-gold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE2E89FAFE2EFEB5CE5DB67C /* holi-gold@2x.png */; };
+		4D42DBF4297B2D3F13F8D5B6 /* holi-gold@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AFD34DCFD02A69477C55DB69 /* holi-gold@3x.png */; };
+		53C52D5EC2944050625D945E /* christmas@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 223D624C952B4A4E2A528027 /* christmas@3x.png */; };
+		58991EB36BFF1A462562670A /* christmas@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7D8493D8453412D18F2A1910 /* christmas@2x.png */; };
+		59F08893ACD7D9E789578F8D /* dark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46C283350DAD863FEA5FDA04 /* dark@2x.png */; };
+		5A6FEF511391BF2E0786E8B1 /* holi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1012C0BBDCD5B7B903B3DB5E /* holi@2x.png */; };
+		6C8EB24B7DCA4A5989A09684 /* halloween@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 001C4D10BABDAD56F2EA2F04 /* halloween@3x.png */; };
+		71F6F62CD75190D17422F138 /* diwali-gold@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42A87F31EF22DF215E5373AD /* diwali-gold@3x.png */; };
 		761780ED2CA45674006654EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761780EC2CA45674006654EE /* AppDelegate.swift */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		83169FE314CDA08537C3A591 /* holiday@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F07392EB1FDD9D3FC39D426 /* holiday@3x.png */; };
+		88B515C56C5EAEFEFA9F613D /* holiday.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D64DF68DF3D99A11DE3F2E /* holiday.png */; };
+		8F95B90477CD3B984D649119 /* halloween-gold@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E1A0B20C6988F8B1F71A2900 /* halloween-gold@3x.png */; };
+		9068C8E58ADFBA910DE1E4A1 /* newyear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E60618E7C93301BFB03E74C7 /* newyear@2x.png */; };
+		95F357FC45DEAB43F0A0E783 /* diwali.png in Resources */ = {isa = PBXBuildFile; fileRef = A7772F8655B2ED31B8CBF66C /* diwali.png */; };
+		975854A4D8BBDC831F82FCBD /* newyear-gold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F13BA7F86939586FE352708 /* newyear-gold@2x.png */; };
+		9C3B942FE3485A4848CFE5D2 /* holiday@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EBD0CF6EAFE5123D3CC310E9 /* holiday@2x.png */; };
+		A298AA7942FFDE724AD608EA /* diwali@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 85869844BC3D308301757D9B /* diwali@3x.png */; };
+		AA35CA4D1B5E648DF78FFA29 /* christmas.png in Resources */ = {isa = PBXBuildFile; fileRef = 09C2E41CB0068ABEAB4D4FD7 /* christmas.png */; };
+		AD073B8780D749B70C504834 /* dark@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A60B51F0A2870F5E2B42D7F /* dark@3x.png */; };
+		AF1C943FF4DB8283582FFB4B /* christmas-gold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F4B1B055B9C617343004DE90 /* christmas-gold@2x.png */; };
+		BC3EA04B1D4504148767CB8B /* premium@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 23A49B768236BD0765783975 /* premium@3x.png */; };
+		C0031BD590210430AB9B7B27 /* gold@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FC94341A6A330D1DEC22703 /* gold@3x.png */; };
+		C00C51EC21553AD8941EF9AA /* halloween-gold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 692AEE35EE9A83B436025834 /* halloween-gold@2x.png */; };
+		CFFB7472F33D55A043A7DC34 /* newyear-gold@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 94B9BF95D61F31BF9C6D090E /* newyear-gold@3x.png */; };
+		D29AD6C66C69EF79C93209B2 /* dark.png in Resources */ = {isa = PBXBuildFile; fileRef = F5C4D58A0554F659FF6864CA /* dark.png */; };
+		FF880376D6C5192CD7F70384 /* newyear@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 88504A9CCD1ABB12E133BCBA /* newyear@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		001C4D10BABDAD56F2EA2F04 /* halloween@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "halloween@3x.png"; path = "ReactNativeStarter/Icons/halloween@3x.png"; sourceTree = SOURCE_ROOT; };
+		03D64DF68DF3D99A11DE3F2E /* holiday.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = ReactNativeStarter/holiday.png; sourceTree = SOURCE_ROOT; };
+		065B80197BEED60351CC81B7 /* diwali@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "diwali@2x.png"; path = "ReactNativeStarter/diwali@2x.png"; sourceTree = SOURCE_ROOT; };
+		09C2E41CB0068ABEAB4D4FD7 /* christmas.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = ReactNativeStarter/christmas.png; sourceTree = SOURCE_ROOT; };
+		1012C0BBDCD5B7B903B3DB5E /* holi@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "holi@2x.png"; path = "ReactNativeStarter/Icons/holi@2x.png"; sourceTree = SOURCE_ROOT; };
 		13B07F961A680F5B00A75B9A /* ReactNativeStarter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactNativeStarter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ReactNativeStarter/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ReactNativeStarter/Info.plist; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = ReactNativeStarter/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		223D624C952B4A4E2A528027 /* christmas@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "christmas@3x.png"; path = "ReactNativeStarter/christmas@3x.png"; sourceTree = SOURCE_ROOT; };
+		23A49B768236BD0765783975 /* premium@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "premium@3x.png"; path = "ReactNativeStarter/premium@3x.png"; sourceTree = SOURCE_ROOT; };
+		25621B866369BED01274F231 /* diwali-gold@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "diwali-gold@2x.png"; path = "ReactNativeStarter/Icons/diwali-gold@2x.png"; sourceTree = SOURCE_ROOT; };
 		3B4392A12AC88292D35C810B /* Pods-ReactNativeStarter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeStarter.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeStarter/Pods-ReactNativeStarter.debug.xcconfig"; sourceTree = "<group>"; };
+		3EDD9386C69F04C9742AEE0E /* AppIconModuleImpl.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReactNativeStarter/AppIconModuleImpl.swift; sourceTree = "<group>"; };
+		42A87F31EF22DF215E5373AD /* diwali-gold@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "diwali-gold@3x.png"; path = "ReactNativeStarter/Icons/diwali-gold@3x.png"; sourceTree = SOURCE_ROOT; };
+		46C283350DAD863FEA5FDA04 /* dark@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dark@2x.png"; path = "ReactNativeStarter/dark@2x.png"; sourceTree = SOURCE_ROOT; };
+		4A7CE1FCA0C5487D6D549C96 /* premium.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = ReactNativeStarter/premium.png; sourceTree = SOURCE_ROOT; };
 		5709B34CF0A7D63546082F79 /* Pods-ReactNativeStarter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeStarter.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeStarter/Pods-ReactNativeStarter.release.xcconfig"; sourceTree = "<group>"; };
+		57550F5C542EEFA5FAA4B946 /* gold.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = ReactNativeStarter/gold.png; sourceTree = SOURCE_ROOT; };
+		5884BB4878166384D1B3F02E /* premium@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "premium@2x.png"; path = "ReactNativeStarter/premium@2x.png"; sourceTree = SOURCE_ROOT; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-ReactNativeStarter.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeStarter.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F13BA7F86939586FE352708 /* newyear-gold@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "newyear-gold@2x.png"; path = "ReactNativeStarter/Icons/newyear-gold@2x.png"; sourceTree = SOURCE_ROOT; };
+		692AEE35EE9A83B436025834 /* halloween-gold@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "halloween-gold@2x.png"; path = "ReactNativeStarter/Icons/halloween-gold@2x.png"; sourceTree = SOURCE_ROOT; };
+		69E90CE4AD14C8F896D1DE01 /* gold@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "gold@2x.png"; path = "ReactNativeStarter/gold@2x.png"; sourceTree = SOURCE_ROOT; };
+		6FC94341A6A330D1DEC22703 /* gold@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "gold@3x.png"; path = "ReactNativeStarter/gold@3x.png"; sourceTree = SOURCE_ROOT; };
 		761780EC2CA45674006654EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ReactNativeStarter/AppDelegate.swift; sourceTree = "<group>"; };
+		7D8493D8453412D18F2A1910 /* christmas@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "christmas@2x.png"; path = "ReactNativeStarter/christmas@2x.png"; sourceTree = SOURCE_ROOT; };
+		7F07392EB1FDD9D3FC39D426 /* holiday@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "holiday@3x.png"; path = "ReactNativeStarter/holiday@3x.png"; sourceTree = SOURCE_ROOT; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ReactNativeStarter/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		85869844BC3D308301757D9B /* diwali@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "diwali@3x.png"; path = "ReactNativeStarter/diwali@3x.png"; sourceTree = SOURCE_ROOT; };
+		88504A9CCD1ABB12E133BCBA /* newyear@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "newyear@3x.png"; path = "ReactNativeStarter/Icons/newyear@3x.png"; sourceTree = SOURCE_ROOT; };
+		94B9BF95D61F31BF9C6D090E /* newyear-gold@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "newyear-gold@3x.png"; path = "ReactNativeStarter/Icons/newyear-gold@3x.png"; sourceTree = SOURCE_ROOT; };
+		9A60B51F0A2870F5E2B42D7F /* dark@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dark@3x.png"; path = "ReactNativeStarter/dark@3x.png"; sourceTree = SOURCE_ROOT; };
+		A6754E45021BC04BF241047C /* AppIconModule.mm */ = {isa = PBXFileReference; includeInIndex = 1; path = ReactNativeStarter/AppIconModule.mm; sourceTree = "<group>"; };
+		A7772F8655B2ED31B8CBF66C /* diwali.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = ReactNativeStarter/diwali.png; sourceTree = SOURCE_ROOT; };
+		AF5B1CF4AB5D81E5DF02ADB2 /* halloween@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "halloween@2x.png"; path = "ReactNativeStarter/Icons/halloween@2x.png"; sourceTree = SOURCE_ROOT; };
+		AFD34DCFD02A69477C55DB69 /* holi-gold@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "holi-gold@3x.png"; path = "ReactNativeStarter/Icons/holi-gold@3x.png"; sourceTree = SOURCE_ROOT; };
+		BE2E89FAFE2EFEB5CE5DB67C /* holi-gold@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "holi-gold@2x.png"; path = "ReactNativeStarter/Icons/holi-gold@2x.png"; sourceTree = SOURCE_ROOT; };
+		C8AFAB586B4051E1A78834B3 /* holi@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "holi@3x.png"; path = "ReactNativeStarter/Icons/holi@3x.png"; sourceTree = SOURCE_ROOT; };
+		DA8424AA1928DFE396D8CD0A /* christmas-gold@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "christmas-gold@3x.png"; path = "ReactNativeStarter/Icons/christmas-gold@3x.png"; sourceTree = SOURCE_ROOT; };
+		DB31D61C6D49F7341305D179 /* AppIconModule.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ReactNativeStarter/AppIconModule.h; sourceTree = "<group>"; };
+		E1A0B20C6988F8B1F71A2900 /* halloween-gold@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "halloween-gold@3x.png"; path = "ReactNativeStarter/Icons/halloween-gold@3x.png"; sourceTree = SOURCE_ROOT; };
+		E60618E7C93301BFB03E74C7 /* newyear@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "newyear@2x.png"; path = "ReactNativeStarter/Icons/newyear@2x.png"; sourceTree = SOURCE_ROOT; };
+		EBD0CF6EAFE5123D3CC310E9 /* holiday@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "holiday@2x.png"; path = "ReactNativeStarter/holiday@2x.png"; sourceTree = SOURCE_ROOT; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F4B1B055B9C617343004DE90 /* christmas-gold@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "christmas-gold@2x.png"; path = "ReactNativeStarter/Icons/christmas-gold@2x.png"; sourceTree = SOURCE_ROOT; };
+		F5C4D58A0554F659FF6864CA /* dark.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = ReactNativeStarter/dark.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +120,43 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */,
+				3EDD9386C69F04C9742AEE0E /* AppIconModuleImpl.swift */,
+				DB31D61C6D49F7341305D179 /* AppIconModule.h */,
+				A6754E45021BC04BF241047C /* AppIconModule.mm */,
+				4A7CE1FCA0C5487D6D549C96 /* premium.png */,
+				F5C4D58A0554F659FF6864CA /* dark.png */,
+				57550F5C542EEFA5FAA4B946 /* gold.png */,
+				03D64DF68DF3D99A11DE3F2E /* holiday.png */,
+				09C2E41CB0068ABEAB4D4FD7 /* christmas.png */,
+				A7772F8655B2ED31B8CBF66C /* diwali.png */,
+				5884BB4878166384D1B3F02E /* premium@2x.png */,
+				23A49B768236BD0765783975 /* premium@3x.png */,
+				46C283350DAD863FEA5FDA04 /* dark@2x.png */,
+				9A60B51F0A2870F5E2B42D7F /* dark@3x.png */,
+				69E90CE4AD14C8F896D1DE01 /* gold@2x.png */,
+				6FC94341A6A330D1DEC22703 /* gold@3x.png */,
+				EBD0CF6EAFE5123D3CC310E9 /* holiday@2x.png */,
+				7F07392EB1FDD9D3FC39D426 /* holiday@3x.png */,
+				7D8493D8453412D18F2A1910 /* christmas@2x.png */,
+				223D624C952B4A4E2A528027 /* christmas@3x.png */,
+				065B80197BEED60351CC81B7 /* diwali@2x.png */,
+				85869844BC3D308301757D9B /* diwali@3x.png */,
+				25621B866369BED01274F231 /* diwali-gold@2x.png */,
+				42A87F31EF22DF215E5373AD /* diwali-gold@3x.png */,
+				F4B1B055B9C617343004DE90 /* christmas-gold@2x.png */,
+				DA8424AA1928DFE396D8CD0A /* christmas-gold@3x.png */,
+				1012C0BBDCD5B7B903B3DB5E /* holi@2x.png */,
+				C8AFAB586B4051E1A78834B3 /* holi@3x.png */,
+				BE2E89FAFE2EFEB5CE5DB67C /* holi-gold@2x.png */,
+				AFD34DCFD02A69477C55DB69 /* holi-gold@3x.png */,
+				AF5B1CF4AB5D81E5DF02ADB2 /* halloween@2x.png */,
+				001C4D10BABDAD56F2EA2F04 /* halloween@3x.png */,
+				692AEE35EE9A83B436025834 /* halloween-gold@2x.png */,
+				E1A0B20C6988F8B1F71A2900 /* halloween-gold@3x.png */,
+				E60618E7C93301BFB03E74C7 /* newyear@2x.png */,
+				88504A9CCD1ABB12E133BCBA /* newyear@3x.png */,
+				5F13BA7F86939586FE352708 /* newyear-gold@2x.png */,
+				94B9BF95D61F31BF9C6D090E /* newyear-gold@3x.png */,
 			);
 			name = ReactNativeStarter;
 			sourceTree = "<group>";
@@ -161,6 +271,40 @@
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				26449B8218B2E7EA06B8B253 /* PrivacyInfo.xcprivacy in Resources */,
+				0E8EFF4A769CD4DAA6CF10EF /* premium.png in Resources */,
+				D29AD6C66C69EF79C93209B2 /* dark.png in Resources */,
+				120F96BC40B55FC736A32139 /* gold.png in Resources */,
+				88B515C56C5EAEFEFA9F613D /* holiday.png in Resources */,
+				AA35CA4D1B5E648DF78FFA29 /* christmas.png in Resources */,
+				95F357FC45DEAB43F0A0E783 /* diwali.png in Resources */,
+				2502F81756A449729A4F6DA7 /* premium@2x.png in Resources */,
+				BC3EA04B1D4504148767CB8B /* premium@3x.png in Resources */,
+				59F08893ACD7D9E789578F8D /* dark@2x.png in Resources */,
+				AD073B8780D749B70C504834 /* dark@3x.png in Resources */,
+				026E1EC5474AA332BFD2E2E2 /* gold@2x.png in Resources */,
+				C0031BD590210430AB9B7B27 /* gold@3x.png in Resources */,
+				9C3B942FE3485A4848CFE5D2 /* holiday@2x.png in Resources */,
+				83169FE314CDA08537C3A591 /* holiday@3x.png in Resources */,
+				58991EB36BFF1A462562670A /* christmas@2x.png in Resources */,
+				53C52D5EC2944050625D945E /* christmas@3x.png in Resources */,
+				1E9C7494FC614A6486BF254E /* diwali@2x.png in Resources */,
+				A298AA7942FFDE724AD608EA /* diwali@3x.png in Resources */,
+				3838FBC35C46BCC29E78DE0D /* diwali-gold@2x.png in Resources */,
+				71F6F62CD75190D17422F138 /* diwali-gold@3x.png in Resources */,
+				AF1C943FF4DB8283582FFB4B /* christmas-gold@2x.png in Resources */,
+				298A5FE1937A3228E4EA59A9 /* christmas-gold@3x.png in Resources */,
+				5A6FEF511391BF2E0786E8B1 /* holi@2x.png in Resources */,
+				1D6BBB93F0F1C2395C3E8141 /* holi@3x.png in Resources */,
+				40FBB0A4E8D5ADFD24AC361B /* holi-gold@2x.png in Resources */,
+				4D42DBF4297B2D3F13F8D5B6 /* holi-gold@3x.png in Resources */,
+				399F9414B824970183434281 /* halloween@2x.png in Resources */,
+				6C8EB24B7DCA4A5989A09684 /* halloween@3x.png in Resources */,
+				C00C51EC21553AD8941EF9AA /* halloween-gold@2x.png in Resources */,
+				8F95B90477CD3B984D649119 /* halloween-gold@3x.png in Resources */,
+				9068C8E58ADFBA910DE1E4A1 /* newyear@2x.png in Resources */,
+				FF880376D6C5192CD7F70384 /* newyear@3x.png in Resources */,
+				975854A4D8BBDC831F82FCBD /* newyear-gold@2x.png in Resources */,
+				CFFB7472F33D55A043A7DC34 /* newyear-gold@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +391,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				761780ED2CA45674006654EE /* AppDelegate.swift in Sources */,
+				2913BE2C9552BF9527A04357 /* AppIconModuleImpl.swift in Sources */,
+				2F979A4061C24A2D31EAAC54 /* AppIconModule.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

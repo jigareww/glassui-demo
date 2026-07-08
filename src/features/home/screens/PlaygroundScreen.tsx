@@ -91,6 +91,45 @@ export const PlaygroundScreen: React.FC<PlaygroundScreenProps> = memo(({ isDarkM
           ) : null}
         </Card>
 
+        {/* Section B: App Icons */}
+        <Text style={[styles.sectionTitle, { color: subColor, marginTop: 24 }]}>APP ICONS</Text>
+        <Card style={styles.card} isDarkMode={isDarkMode}>
+          <Text style={[styles.label, { color: textColor, marginBottom: 12 }]}>Change Dynamic Icon</Text>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: 8 }}>
+            {['default', 'premium', 'dark', 'gold', 'holiday', 'christmas', 'diwali'].map((iconName) => (
+              <TouchableOpacity 
+                key={iconName}
+                style={[styles.btn, { backgroundColor: isDarkMode ? '#374151' : '#e5e7eb', marginBottom: 8 }]} 
+                onPress={async () => {
+                  try {
+                    const AppIconModule = require('../../../native/AppIconModule').default;
+                    await AppIconModule.changeIcon(iconName);
+                    toast.success(`Icon changed to ${iconName}`);
+                  } catch (e: any) {
+                    toast.error(`Failed: ${e.message}`);
+                  }
+                }}
+              >
+                <Text style={[styles.btnText, { color: textColor }]}>{iconName}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
+          <TouchableOpacity 
+            style={[styles.btn, { marginTop: 12, backgroundColor: '#10b981', alignSelf: 'flex-start' }]} 
+            onPress={async () => {
+              try {
+                const AppIconModule = require('../../../native/AppIconModule').default;
+                const current = await AppIconModule.getCurrentIcon();
+                toast.success(`Current Icon: ${current}`);
+              } catch (e: any) {
+                toast.error(`Failed: ${e.message}`);
+              }
+            }}
+          >
+            <Text style={styles.btnText}>Get Current Icon</Text>
+          </TouchableOpacity>
+        </Card>
+
         {/* Section C: Testing Mode */}
         <Text style={[styles.sectionTitle, { color: subColor, marginTop: 24 }]}>TESTING MODE</Text>
         <Card style={styles.card} isDarkMode={isDarkMode}>

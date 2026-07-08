@@ -65,7 +65,11 @@ export const AlertModal: React.FC = () => {
       transparent
       visible={!!activeAlert}
       animationType="none"
-      onRequestClose={() => alertManager.dismiss()}
+      onRequestClose={() => {
+        if (activeAlert.cancelable !== false) {
+          alertManager.dismiss();
+        }
+      }}
     >
       <View style={styles.overlay}>
         {/* Blur overlay background */}
@@ -93,7 +97,11 @@ export const AlertModal: React.FC = () => {
           <TouchableOpacity
             style={styles.dismissArea}
             activeOpacity={1}
-            onPress={() => alertManager.dismiss()}
+            onPress={() => {
+              if (activeAlert.cancelable !== false) {
+                alertManager.dismiss();
+              }
+            }}
           />
         </Animated.View>
 
@@ -117,6 +125,12 @@ export const AlertModal: React.FC = () => {
               <Text style={[styles.message, isDarkMode ? styles.descDark : styles.descLight]}>
                 {activeAlert.message}
               </Text>
+              
+              {activeAlert.customView && (
+                <View style={styles.customViewContainer}>
+                  {activeAlert.customView}
+                </View>
+              )}
 
               <View style={[styles.buttonContainer, buttons.length > 2 ? styles.buttonContainerVertical : null]}>
                 {buttons.map((btn, index) => {
@@ -253,6 +267,12 @@ const styles = StyleSheet.create({
   },
   descDark: {
     color: '#9ca3af',
+  },
+  customViewContainer: {
+    width: '100%',
+    marginBottom: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   buttonContainer: {
     flexDirection: 'row',

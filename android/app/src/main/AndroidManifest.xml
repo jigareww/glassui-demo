@@ -13,15 +13,204 @@
       android:supportsRtl="true">
       <activity
         android:name=".MainActivity"
-        android:label="@string/app_name"
         android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
         android:launchMode="singleTask"
         android:windowSoftInputMode="adjustResize"
         android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
       </activity>
+
+      <activity-alias
+          android:name=".MainActivityDefault"
+          android:enabled="true"
+          android:exported="true"
+          android:icon="@mipmap/ic_launcher"
+          android:roundIcon="@mipmap/ic_launcher_round"
+          android:targetActivity=".MainActivity">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+              <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+      </activity-alias>
+
+      <activity-alias
+          android:name=".MainActivityPremium"
+          android:enabled="false"
+          android:exported="true"
+          android:icon="@mipmap/ic_launcher_premium"
+          android:roundIcon="@mipmap/ic_launcher_premium_round"
+          android:targetActivity=".MainActivity">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+              <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+      </activity-alias>
+
+      <activity-alias
+          android:name=".MainActivityDark"
+          android:enabled="false"
+          android:exported="true"
+          android:icon="@mipmap/ic_launcher_dark"
+          android:roundIcon="@mipmap/ic_launcher_dark_round"
+          android:targetActivity=".MainActivity">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+              <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+      </activity-alias>
+
+      <activity-alias
+          android:name=".MainActivityGold"
+          android:enabled="false"
+          android:exported="true"
+          android:icon="@mipmap/ic_launcher_gold"
+          android:roundIcon="@mipmap/ic_launcher_gold_round"
+          android:targetActivity=".MainActivity">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+              <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+      </activity-alias>
+
+      <activity-alias
+          android:name=".MainActivityHoliday"
+          android:enabled="false"
+          android:exported="true"
+          android:icon="@mipmap/ic_launcher_holiday"
+          android:roundIcon="@mipmap/ic_launcher_holiday_round"
+          android:targetActivity=".MainActivity">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+              <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+      </activity-alias>
+
+      <activity-alias
+          android:name=".MainActivityChristmas"
+          android:enabled="false"
+          android:exported="true"
+          android:icon="@mipmap/ic_launcher_christmas"
+          android:roundIcon="@mipmap/ic_launcher_christmas_round"
+          android:targetActivity=".MainActivity">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+              <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+      </activity-alias>
+
+      <activity-alias
+          android:name=".MainActivityDiwali"
+          android:enabled="false"
+          android:exported="true"
+          android:icon="@mipmap/ic_launcher_diwali"
+          android:roundIcon="@mipmap/ic_launcher_diwali_round"
+          android:targetActivity=".MainActivity">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+              <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+      </activity-alias>
+      <activity-alias
+          android:name=".MainActivityDiwaliGold"
+          android:enabled="false"
+          android:exported="true"
+          android:icon="@mipmap/ic_launcher_diwali_gold"
+          android:roundIcon="@mipmap/ic_launcher_diwali_gold"
+          android:targetActivity=".MainActivity">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+              <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+      </activity-alias>
+
+      <activity-alias
+          android:name=".MainActivityChristmasGold"
+          android:enabled="false"
+          android:exported="true"
+          android:icon="@mipmap/ic_launcher_christmas_gold"
+          android:roundIcon="@mipmap/ic_launcher_christmas_gold"
+          android:targetActivity=".MainActivity">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+              <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+      </activity-alias>
+
+      <activity-alias
+          android:name=".MainActivityHoli"
+          android:enabled="false"
+          android:exported="true"
+          android:icon="@mipmap/ic_launcher_holi"
+          android:roundIcon="@mipmap/ic_launcher_holi"
+          android:targetActivity=".MainActivity">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+              <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+      </activity-alias>
+
+      <activity-alias
+          android:name=".MainActivityHoliGold"
+          android:enabled="false"
+          android:exported="true"
+          android:icon="@mipmap/ic_launcher_holi_gold"
+          android:roundIcon="@mipmap/ic_launcher_holi_gold"
+          android:targetActivity=".MainActivity">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+              <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+      </activity-alias>
+
+      <activity-alias
+          android:name=".MainActivityHalloween"
+          android:enabled="false"
+          android:exported="true"
+          android:icon="@mipmap/ic_launcher_halloween"
+          android:roundIcon="@mipmap/ic_launcher_halloween"
+          android:targetActivity=".MainActivity">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+              <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+      </activity-alias>
+
+      <activity-alias
+          android:name=".MainActivityHalloweenGold"
+          android:enabled="false"
+          android:exported="true"
+          android:icon="@mipmap/ic_launcher_halloween_gold"
+          android:roundIcon="@mipmap/ic_launcher_halloween_gold"
+          android:targetActivity=".MainActivity">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+              <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+      </activity-alias>
+
+      <activity-alias
+          android:name=".MainActivityNewyear"
+          android:enabled="false"
+          android:exported="true"
+          android:icon="@mipmap/ic_launcher_newyear"
+          android:roundIcon="@mipmap/ic_launcher_newyear"
+          android:targetActivity=".MainActivity">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+              <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+      </activity-alias>
+
+      <activity-alias
+          android:name=".MainActivityNewyearGold"
+          android:enabled="false"
+          android:exported="true"
+          android:icon="@mipmap/ic_launcher_newyear_gold"
+          android:roundIcon="@mipmap/ic_launcher_newyear_gold"
+          android:targetActivity=".MainActivity">
+          <intent-filter>
+              <action android:name="android.intent.action.MAIN" />
+              <category android:name="android.intent.category.LAUNCHER" />
+          </intent-filter>
+      </activity-alias>
     </application>
 </manifest>
